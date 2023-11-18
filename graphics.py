@@ -90,21 +90,25 @@ class Graphics:
 
         pos = (x+85,y+75)
         self.draw_ui_text("SCORE", pos, FontSize.SMALL, color=COLOR_FONT_FG)
-        pos = (x+85,y+90)
+        pos = (x+10,y+90)
         self.draw_ui_score(game, game.score, pos)
 
         pos = (x+85,y+150)
         self.draw_ui_text("BEST", pos, FontSize.SMALL, color=COLOR_FONT_FG)
-        pos = (x+85,y+165)
+        pos = (x+10,y+165)
         self.draw_ui_score(game, game.hiscore, pos)
 
     def draw_ui_score(self, game, score: int, pos:(int,int)=UI_SCORE_POS):
         x, y = pos
-        x_inc = TEXT_W
-        for digit in str(score):
-            spr = self.spr_text[digit]
-            self.screen.blit(spr, pos)
-            x += x_inc
+        blank_inc = 10
+        for digit in str(score).rjust(9):
+            pos = (x,y)
+            if not digit == ' ':
+                spr = self.spr_text[digit]
+                self.screen.blit(spr, pos)
+                x += spr.get_width()
+            else:
+                x += blank_inc
 
     def draw_bg(self, game):
         x, y = (0,0)
