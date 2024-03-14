@@ -13,6 +13,6 @@ via `source init-venv.sh` and then run the game with `./main.py`.
 Alternatively, you can just run `pip -r requirements.txt` to install pygame and
 then run `main.py` with your own python shell.
 
-![flappy-bird](flappy-bird.gif)
+![flappy-bird](flappy-bird.png)
 
 
