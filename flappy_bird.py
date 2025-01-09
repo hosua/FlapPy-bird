@@ -1,4 +1,5 @@
 from global_vars import *
+from sound_handler import sounds
 
 def check_hitbox(rect1, rect2):
     x1, y1, w1, h1 = rect1
@@ -60,6 +61,7 @@ y_vel: {self.y_vel}\n\
     def flap(self):
         self.y_vel -= FLAP_STRENGTH
         self.calc_pos()
+        sounds["flap"].play()
 
 class Pipe:
     def __init__(self, y_top: int, y_bottom: int, x: int=PIPE_X_START):
@@ -96,6 +98,7 @@ class Game:
         self.state = GameState.GAMEOVER
         self.bird.y_vel = 10
         self.save_hiscore()
+        sounds["die"].play()
 
     def check_collision(self):
         bx, by = self.bird.pos

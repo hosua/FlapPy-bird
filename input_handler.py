@@ -2,6 +2,7 @@ import pygame
 
 from global_vars import *
 from flappy_bird import Game
+from sound_handler import sounds
 
 def handle_input(event: pygame.event, game, gfx):
 
