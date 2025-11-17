@@ -4,21 +4,20 @@ import pygame
 import os
 import sys
 import time
+import asyncio
 
 from global_vars import *
 from flappy_bird import Bird, Pipe, Game
 from input_handler import handle_input
 from graphics import Graphics
 
-if __name__ == "__main__":
+async def main():
     pygame.init()
     pygame.key.set_repeat(INPUT_REPEAT_DELAY, INPUT_REPEAT_INTERVAL)
     screen = pygame.Surface((SCREEN_W, SCREEN_H))
     actual_screen = pygame.display.set_mode([WINDOW_W, WINDOW_H])
 
     game = Game(BirdColor.BLUE, BgType.DAY)
-    # game = Game(BirdColor.RED, BgType.DAY)
-    # game.state = GameState.PLAYING
     clock = pygame.time.Clock()
 
     gfx = Graphics(screen, actual_screen)
@@ -79,5 +78,9 @@ if __name__ == "__main__":
         gfx.draw_to_actual_screen()
         gfx.update_screen()
         clock.tick(FPS)
+        await asyncio.sleep(0)
         frame += 1
+
+if __name__ == "__main__":
+    asyncio.run(main())
 

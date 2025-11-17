@@ -2,3 +2,4 @@ flappy-venv/
 __pycache__/
 save.bin
 
+build/
