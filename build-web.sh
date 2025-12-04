@@ -10,7 +10,7 @@ echo "Installing pygbag..."
 pip install pygbag
 
 echo "Building web version..."
-python -m pygbag main.py --build
+python -m pygbag --build main.py
 
 echo "Build complete! The game files are in the 'build/web' directory."
 echo ""
