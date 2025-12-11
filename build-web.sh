@@ -1,13 +1,12 @@
 #!/bin/bash
 
+set -e
+
 # Build script for creating web-embeddable version of FlapPy Bird
 # Usage: ./build-web.sh [port]
 # If port is not specified, defaults to 8000
 
 PORT=${1:-8000}
-
-echo "Installing pygbag..."
-pip install pygbag
 
 echo "Building web version..."
 python -m pygbag --build main.py
