@@ -2,12 +2,6 @@
 
 set -e
 
-# Build script for creating web-embeddable version of FlapPy Bird
-# Usage: ./build-web.sh [port]
-# If port is not specified, defaults to 8000
-
-PORT=${1:-8000}
-
 echo "Building web version..."
-python -m pygbag --build main.py
+python -m pygbag --build .
 echo "Build complete! The game files are in the 'build/web' directory."
